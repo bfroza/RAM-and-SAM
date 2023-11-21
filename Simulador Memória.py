@@ -6,7 +6,7 @@ def codigoSAM():
     sam = input("Digite uma palavra: ")
     inicio = time.time()
 
-    with open(r'c:\Users\URI\Documents\Estudos TI\Python 3\Projeto\palavras.txt', 'r', encoding='utf-8') as arquivo:
+    with open(r'palavras.txt', 'r', encoding='utf-8') as arquivo:
         conteudo = arquivo.read()
         palavras = conteudo.split()
 
@@ -23,7 +23,7 @@ def codigoSAM():
 def codigoRAM():
     ram = input("Digite uma palavra: ")
     inicio = time.time()  
-    with open(r'c:\Users\URI\Documents\Estudos TI\Python 3\Projeto\palavras.txt', 'r', encoding='utf-8') as arquivo:
+    with open(r'palavras.txt', 'r', encoding='utf-8') as arquivo:
         conteudo = arquivo.read()
         palavras = conteudo.split()
         print(type(palavras))

@@ -11,7 +11,7 @@ def codigoSAM():
     sam = input("Digite uma palavra: ")
     inicio = time.time()
 
-    with open(r'c:\Users\URI\Documents\Estudos TI\Python 3\Projeto\palavras.txt', 'r', encoding='utf-8') as arquivo:
+    with open(r'palavras.txt', 'r', encoding='utf-8') as arquivo:
         conteudo = arquivo.read()
         palavras = conteudo.split()
 
@@ -42,7 +42,7 @@ def codigoRAM():
     global pedir
     ram = input("Digite uma palavra: ")
     inicio = time.time()
-    with open(r'c:\Users\URI\Documents\Estudos TI\Python 3\Projeto\palavras.txt', 'r', encoding='utf-8') as arquivo:
+    with open(r'palavras.txt', 'r', encoding='utf-8') as arquivo:
         conteudo = arquivo.read()
         palavras = conteudo.split()
 
@@ -74,7 +74,7 @@ def codigoRAM():
             for posicao, (chave, valor) in enumerate(palavras_ram.items()):
                 if chave == palavra_aleatoria:
                     indice = valor
-                    print(f'Foram realizadas {repet} iterações para achar a palavra "{chave}" no índice {indice} do arquivo original na posição {posicao} da memória RAM')
+                    print(f'Foram realizadas {repet} iterações para achar a palavra "{chave}" no índice {indice} do arquivo original e na posição {posicao} da memória RAM')
 
                     fim = time.time()
                     tempo_total = fim - inicio
