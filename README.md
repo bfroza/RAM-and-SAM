@@ -13,12 +13,12 @@ Este é um simulador de memória desenvolvido em Python que implementa duas abor
 
 ## Estrutura do Projeto
 
-- **codigo.py:** Contém o código principal que implementa as funcionalidades do simulador.
-- **resultSAM.txt:** Arquivo para armazenar os resultados da busca em modo SAM.
-- **resultRAM.txt:** Arquivo para armazenar os resultados da busca em modo RAM.
-- **armazenadoRAM.txt:** Arquivo para armazenar os resultados da busca em modo RAM com informações armazenadas.
-- **palavras.txt:** Arquivo de texto que contém o conjunto de palavras.
-- **README.txt:** Este arquivo, fornecendo informações sobre o simulador.
+- **`codigo.py´:** Contém o código principal que implementa as funcionalidades do simulador.
+- **`resultSAM.txt´:** Arquivo para armazenar os resultados da busca em modo SAM.
+- **`resultRAM.txt´:** Arquivo para armazenar os resultados da busca em modo RAM.
+- **`armazenadoRAM.txt´:** Arquivo para armazenar os resultados da busca em modo RAM com informações armazenadas.
+- **`palavras.txt´:** Arquivo de texto que contém o conjunto de palavras.
+- **`README.txt´:** Este arquivo, fornecendo informações sobre o simulador.
 
 ## Como Usar
 
