@@ -32,6 +32,7 @@ Este é um simulador de memória desenvolvido em Python que implementa duas abor
 - Python 3.x
 - Biblioteca matplotlib para a geração de gráficos. Instale usando `pip install matplotlib`.
 - Recomendamos que utilize o Visual Studio Code.
+- Um arquivo chamado `palavras.txt` para realizar a busca
 
 ## Observações
 
