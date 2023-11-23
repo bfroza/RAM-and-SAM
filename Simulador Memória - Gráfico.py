@@ -5,13 +5,14 @@ import matplotlib.pyplot as plt
 palavras_ram = {}
 absolute = True
 pedir = 0
+repet = 0
 
 def codigoSAM():
     global pedir
     sam = input("Digite uma palavra: ")
     inicio = time.time()
 
-    with open(r'palavras.txt', 'r', encoding='utf-8') as arquivo:
+    with open(local,'r', encoding='utf-8') as arquivo:
         conteudo = arquivo.read()
         palavras = conteudo.split()
 
@@ -42,18 +43,30 @@ def codigoRAM():
     global pedir
     ram = input("Digite uma palavra: ")
     inicio = time.time()
-    with open(r'palavras.txt', 'r', encoding='utf-8') as arquivo:
-        conteudo = arquivo.read()
-        palavras = conteudo.split()
+    
+    if(ram not in palavras_ram):
+        with open(local, 'r', encoding='utf-8') as arquivo:
+            conteudo = arquivo.read()
+            palavras = conteudo.split()
+            #print(type(palavras))
+        verdade = 1
+    else:
+        verdade = 0
 
     cont = 0
-    repet = 0
+   
     tempo_total = 0
     posicao = 0
 
     while True:
-        palavra_aleatoria = random.choice(palavras)
+        global repet
+        if verdade:
+            palavra_aleatoria = random.choice(palavras)
+        else:
+            palavra_aleatoria = ram
+      
         cont += 1
+       
         if(cont > 20000000):
             print("Essa palavra não está no arquivo")
             break
@@ -62,7 +75,7 @@ def codigoRAM():
             palavras_ram.update({palavra_aleatoria: indice})
             fim = time.time()
             tempo_total = fim - inicio
-            print(f'Foram realizadas {cont} iterações para achar a palavra "{ram}" no índice {indice}')
+            print(f'Foram realizadas {cont+1} iterações para achar a palavra "{ram}" no índice {indice}')
             print(f"Tempo total de execução: {tempo_total} segundos")
             salvar_resultadosRAM(cont, tempo_total, ram, indice, posicao)
             pedir += 1
@@ -74,12 +87,13 @@ def codigoRAM():
             for posicao, (chave, valor) in enumerate(palavras_ram.items()):
                 if chave == palavra_aleatoria:
                     indice = valor
+                    repet +=1
                     print(f'Foram realizadas {repet} iterações para achar a palavra "{chave}" no índice {indice} do arquivo original e na posição {posicao} da memória RAM')
 
                     fim = time.time()
+                    
                     tempo_total = fim - inicio
                     print(f"Tempo total de execução: {tempo_total} segundos")
-                    repet += 1
             salvar_resultadosArmazenadosRAM(repet, tempo_total, ram, indice, posicao)
             pedir += 1
             break
@@ -104,6 +118,7 @@ def salvar_resultadosArmazenadosRAM(repet, tempo_total, ram, indice, posicao):
 
 def calcular_medias(nome_arquivo):
     with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:
+        linhas = []
         linhas = arquivo.readlines()
 
         total_iteracoes = 0
@@ -111,10 +126,10 @@ def calcular_medias(nome_arquivo):
         contagem = 0
 
         for linha in linhas:
-            if linha.startswith('Iterações:'):
+            if linha.startswith('Iterações:'): #pesquisa as linhas no arquivo que começam com esse nome
                 total_iteracoes += int(linha.split(":")[1].strip())
                 contagem += 1
-            elif linha.startswith('Tempo total:'):
+            elif linha.startswith('Tempo total:'): #pesquisa as linhas no arquivo que começam com esse nome
                 total_tempo += float(linha.split(":")[1].strip().split()[0])
 
         if contagem == 0:
@@ -125,7 +140,7 @@ def calcular_medias(nome_arquivo):
 
     return media_iteracoes, media_tempo
 
-
+local = input("Digite o nome do arquivo para carregar as palavras: ")
 while True:
     try:
         escolha = int(input("Escolha o código (1 para SAM ou 2 RAM) ou 0 para sair: "))
