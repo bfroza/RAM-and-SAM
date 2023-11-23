@@ -7,6 +7,8 @@ absolute = True
 pedir = 0
 repet = 0
 
+#Bruno e Marcio 
+
 def codigoSAM():
     global pedir
     sam = input("Digite uma palavra: ")

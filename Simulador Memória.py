@@ -1,6 +1,9 @@
 import time
 import random
 
+
+#Bruno e Marcio 
+
 palavras_ram = {}
 absolute = True
 

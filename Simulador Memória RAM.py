@@ -1,6 +1,8 @@
 import time
 import random
 
+#Bruno e Marcio 
+
 palavras_ram = {}
 acesso = 0
 maior_valor = 0
@@ -14,8 +16,6 @@ def mem_ram_sam():
     inicio = time.time()
     acesso += 1
     
-    
-
     if var not in palavras_ram:
         cont = 1
         try:
@@ -55,7 +55,6 @@ def mem_ram_sam():
                 for chave, valor_lista in palavras_ram.items():
                     if valor_lista[0] > maior_valor:
                         maior_valor = valor_lista[0]
-                        chave_maior_valor = chave
                 palavras_ram[sorteio][0] = int(maior_valor) + 1
                 fim = time.time()
                 tempo_total = fim - inicio
@@ -70,8 +69,8 @@ def mem_ram_sam():
             if valor_lista[0] < menor_valor:
                 menor_valor = valor_lista[0]
                 chave_menor_valor = chave
-        print(f'A palavra {chave_menor_valor} foi excluida da RAM')
-        print(f'a palavra {var} foi adicionada a RAM')
+        print(f'A palavra "{chave_menor_valor}" foi excluida da RAM')
+        print(f'A palavra "{var}" foi adicionada a RAM')
         palavras_ram.pop(chave_menor_valor)
 
 local = input("Digite o nome do arquivo para carregar as palavras: ")
