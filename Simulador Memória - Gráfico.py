@@ -77,15 +77,27 @@ def codigoRAM():
             palavras_ram.update({palavra_aleatoria: indice})
             fim = time.time()
             tempo_total = fim - inicio
-            print(f'Foram realizadas {cont+1} iterações para achar a palavra "{ram}" no índice {indice}')
+            print(f'Foram realizadas {cont+1} iterações para achar a palavra "{palavra_aleatoria}" no índice {indice} no arquivo original')
             print(f"Tempo total de execução: {tempo_total} segundos")
-            salvar_resultadosRAM(cont, tempo_total, ram, indice, posicao)
+            salvar_resultadosRAM(cont, tempo_total, palavra_aleatoria)
             pedir += 1
             break
         
         elif palavra_aleatoria == ram and palavra_aleatoria in palavras_ram:
             inicio = time.time()
             print("Esse valor já passou pela memória")
+            cont=0
+            while True:
+                chave = random.choice(list(palavras_ram.keys()))
+                if chave == palavra_aleatoria:
+                    print(f'Foram realizadas {cont} iterações para achar a palavra "{chave}" ')
+                    fim = time.time()
+                    tempo_total = fim - inicio
+                    print(f"Tempo total de execução: {tempo_total} segundos")
+                    break
+                cont+=1
+            #busca realizada por for, iterando palavra por palavra
+            '''
             for posicao, (chave, valor) in enumerate(palavras_ram.items()):
                 if chave == palavra_aleatoria:
                     indice = valor
@@ -96,12 +108,14 @@ def codigoRAM():
                     
                     tempo_total = fim - inicio
                     print(f"Tempo total de execução: {tempo_total} segundos")
-            salvar_resultadosArmazenadosRAM(repet, tempo_total, ram, indice, posicao)
+            salvar_resultadosArmazenadosRAM(repet, tempo_total, chave, indice, posicao)
+            '''
+            salvar_resultadosArmazenadosRAM(cont, tempo_total, chave)
             pedir += 1
             break
         
-            
-
+#funções para salvar o resultado, quando a função realizava busca por for           
+'''
 def salvar_resultadosRAM(cont, tempo_total, ram, indice, posicao):
     with open('resultRAM.txt', 'a', encoding='utf-8') as result_file:
         result_file.write(f'Palavra: {ram}\n')
@@ -117,6 +131,18 @@ def salvar_resultadosArmazenadosRAM(repet, tempo_total, ram, indice, posicao):
         result_file.write(f'Posição na memória RAM: {posicao}\n')
         result_file.write(f'Iterações: {repet}\n')
         result_file.write(f'Tempo total: {tempo_total} segundos\n\n')
+'''
+def salvar_resultadosRAM(cont, tempo_total, palavra_aleatoria):
+    with open('resultRAM.txt', 'a', encoding='utf-8') as result_file:
+        result_file.write(f'Palavra: {palavra_aleatoria}\n')
+        result_file.write(f'Iterações: {cont}\n')
+        result_file.write(f'Tempo total: {tempo_total} segundos\n\n')
+
+def salvar_resultadosArmazenadosRAM(cont, tempo_total, chave):
+    with open('armazenadoRAM.txt', 'a', encoding='utf-8') as result_file:
+       result_file.write(f'Palavra: {chave}\n')
+       result_file.write(f'Iterações: {cont}\n')
+       result_file.write(f'Tempo total: {tempo_total} segundos\n\n')
 
 def calcular_medias(nome_arquivo):
     with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:
@@ -146,7 +172,6 @@ local = input("Digite o nome do arquivo para carregar as palavras: ")
 while True:
     try:
         escolha = int(input("Escolha o código (1 para SAM ou 2 RAM) ou 0 para sair: "))
-        print(pedir)
         if escolha == 1:
             codigoSAM()
         elif escolha == 2:
@@ -160,7 +185,6 @@ while True:
             quer = input("Quer um gráfico para mostrar o comparativo de cada tipo de Memória? (s or n)").lower()
             lista = ["s","sim","1"]
             if(quer in lista):
-                print(pedir)
                 media_iteracoes_sam, media_tempo_sam = calcular_medias('resultSAM.txt')
                 media_iteracoes_ram, media_tempo_ram = calcular_medias('resultRAM.txt')
                 media_iteracoes_ram_armazenada, media_tempo_ram_armazenada = calcular_medias('armazenadoRAM.txt')

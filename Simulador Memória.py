@@ -51,10 +51,10 @@ def codigoRAM(local):
     else:
         verdade = 0
 
-    cont = 0
+    cont=0
 
     while True:
-        repet = 0
+        
         if verdade:
             palavra_aleatoria = random.choice(palavras)
         else:
@@ -63,7 +63,7 @@ def codigoRAM(local):
         if cont > 20000000:
             print("Essa palavra não está no arquivo")
             break
-        if palavra_aleatoria == ram and palavra_aleatoria not in palavras_ram:
+        if palavra_aleatoria == ram and palavra_aleatoria not in palavras_ram.keys():
             indice = palavras.index(palavra_aleatoria)
             palavras_ram.update({palavra_aleatoria: indice})
             fim = time.time()
@@ -72,19 +72,20 @@ def codigoRAM(local):
             print(f"Tempo total de execução: {tempo_total} segundos")
             cont = 0
             break
-        elif palavra_aleatoria == ram and palavra_aleatoria in palavras_ram:
+        elif palavra_aleatoria == ram and palavra_aleatoria in palavras_ram.keys():
             inicio = time.time()
             print("Esse valor já passou pela memória")
-            for posicao, (chave, valor) in enumerate(palavras_ram.items()):
+            cont=0
+            while True:
+                chave = random.choice(list(palavras_ram.keys()))
                 if chave == palavra_aleatoria:
-                    indice = valor
-                    repet += 1
-                    print(f'Foram realizadas {repet} iterações para achar a palavra {chave} no índice {indice} do arquivo original na posição {posicao} da memória RAM')
+                    print(f'Foram realizadas {cont} iterações para achar a palavra "{chave}" ')
                     fim = time.time()
                     tempo_total = fim - inicio
                     print(f"Tempo total de execução: {tempo_total} segundos")
+                    break
+                cont+=1
             break
-
 local = input("Digite o nome do arquivo para carregar as palavras: ")
 while True:
     try:
