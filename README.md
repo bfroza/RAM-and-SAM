@@ -24,17 +24,19 @@ Este é um simulador de memória desenvolvido em Python que implementa duas abor
 
 ## Como Usar
 
-1. Execute o programa e escolha entre as opções 1 (SAM) e 2 (RAM).
-2. Digite a palavra desejada para buscar no conjunto de palavras.
-3. Os resultados da busca serão exibidos no console e armazenados nos arquivos correspondentes.
-4. Os gráficos podem ser gerados automaticamente a cada quinta execução.
+1. Digite o nome do arquivo e sua extensão "palavras.txt" por exemplo.
+2. Execute o programa e escolha entre as opções 1 (SAM) e 2 (RAM).
+3. Digite a palavra desejada para buscar no conjunto de palavras.
+4. Os resultados da busca serão exibidos no console e armazenados nos arquivos correspondentes.
+5. Os gráficos podem ser gerados automaticamente a cada quinta execução.
+OBS: Existem 3 arquivos Simulador Memória.py, Simulador Memória RAM.py e Simulador Memória - Gráfico.py. O primeiro é a versão mais básica, realiza apenas as funções das memórias e mostra no terminal. O segundo realiza as mesmas funções, mas mostra em formato de gráfico, comparando o número de iterações e o tempo de execução, conforme o tipo de memória escolhido e se já está salvo na memória Principal. O terceiro é a versão mais próxima da memória RAM utilizada em computadores. Inicialmente, o programa lê o arquivo, este servirá como um "HD", onde o programa irá procurar as palavras caso não estejam armazenadas na memória RAM. Logo após lê-las, ele salva na memória RAM, que possui apenas 5 espaços (podem ser mudados na linha de código). Esses têm uma fila de prioridade, o último que foi acessado é excluído da memória. Desta forma, caso eu procure alguma palavra que já tenha passado pela RAM e ainda esteja armazenada, o programa realizará uma pesquisa aleatória dentro do dicionário na qual foi armazenada, caso já tenha saído. Realizará a pesquisa novamente no arquivo que contém as palavras.
 
 ## Dependências
 
 - Python 3.x
 - Biblioteca matplotlib para a geração de gráficos. Instale usando `pip install matplotlib`.
 - Recomendamos que utilize o Visual Studio Code.
-- Um arquivo chamado `palavras.txt` para realizar a busca
+- Um arquivo contendo palavras para realizar a busca
 
 ## Observações
 
