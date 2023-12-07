@@ -1,6 +1,6 @@
 # Simulador de Memória
 
-## Marcio Lima e Bruno Froza
+## Bruno Froza , Marcio Lima e Nathan Gowacki
 
 Este é um simulador de memória desenvolvido em Python que implementa duas abordagens de busca de palavras em um conjunto de dados. O simulador opera em dois modos: SAM (Sequential Access Memory) e RAM (Random Access Memory). O objetivo é buscar por uma palavra específica em um arquivo de palavras e medir o tempo de execução em cada modo.
 
