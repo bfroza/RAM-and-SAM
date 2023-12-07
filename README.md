@@ -15,7 +15,7 @@ Este é um simulador de memória desenvolvido em Python que implementa duas abor
 
 ## Estrutura do Projeto
 
-- **`codigo.py´:** Contém o código principal que implementa as funcionalidades do simulador.
+- **`Simulador Memória.py´:** Contém o código principal que implementa as funcionalidades do simulador.
 - **`resultSAM.txt´:** Arquivo para armazenar os resultados da busca em modo SAM.
 - **`resultRAM.txt´:** Arquivo para armazenar os resultados da busca em modo RAM.
 - **`armazenadoRAM.txt´:** Arquivo para armazenar os resultados da busca em modo RAM com informações armazenadas.
@@ -31,7 +31,7 @@ Este é um simulador de memória desenvolvido em Python que implementa duas abor
 5. Os gráficos podem ser gerados automaticamente a cada quinta execução.
 
 OBS:
-Existem 3 arquivos `Simulador Memória.py`, `Simulador Memória RAM.py` e `Simulador Memória - Gráfico.py`.
+Existem 3 arquivos `Simulador Memória.py`,  `Simulador Memória - Gráfico.py` e `Simulador Memória RAM.py`.
 O primeiro é a versão mais básica, realiza apenas as funções das memórias e mostra no terminal.
 O segundo realiza as mesmas funções, mas mostra em formato de gráfico, comparando o número de iterações e o tempo de execução, conforme o tipo de memória escolhido e se já está salvo na memória Principal.
 O terceiro é a versão mais próxima da memória RAM utilizada em computadores. Inicialmente, o programa lê o arquivo, este servirá como um "HD", onde o programa irá procurar as palavras caso não estejam armazenadas na memória RAM. Logo após lê-las, ele salva na memória RAM, que possui apenas 5 espaços (podem ser mudados na linha de código). Esses têm uma fila de prioridade, o último que foi acessado é excluído da memória. Desta forma, caso eu procure alguma palavra que já tenha passado pela RAM e ainda esteja armazenada, o programa realizará uma pesquisa aleatória dentro do dicionário na qual foi armazenada, caso já tenha saído. Realizará a pesquisa novamente no arquivo que contém as palavras.
